@@ -20,5 +20,28 @@ data.head()
 
 for col in data:
     print(data[col].value_counts(), '\n''-----------------------')
+
+#Graficos de barras
+
+for col in data:
+    bar = data[col].value_counts()
+    bar.plot(kind = 'bar', color = ['orange', 'red'])
+    plt.xlabel(col)
+    plt.ylabel(f'Número de vuelos por {col}')
+    plt.title(f'Registro de vuelos por {col}')
+    plt.show()
+
+#Graficos de torta
+
+for col in data:
+    pie = data[col].value_counts()
+    pie.plot(kind = 'pie', colors = ['orange', 'red'],
+             shadow = True, autopct = '%.2f%%')
+    plt.title(f'Registro de vuelos por {col}', fontsize = 14)
+    plt.legend(loc = 'best')
+    plt.show()
+
+
+
     
 
